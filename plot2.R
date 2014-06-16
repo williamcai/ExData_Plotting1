@@ -1,6 +1,6 @@
 # coursera: Exploratory Data Analysis
 # course project 
-# Plot 1
+# Plot 2
 
 # load data from file:household_power_consumption.txt
 data <- read.table("household_power_consumption.txt",
@@ -15,9 +15,9 @@ data$Date <- as.Date(data$Date, "%d/%m/%Y")
 d <- data[data$Date >= "2007-02-01" & data$Date <= "2007-02-02",]
 d$Time <- strptime(paste(d$Date,d$Time),"%Y-%m-%d %X")
 
-
 # ---------------------------------------------------------------
 # plot
-hist(d$Global_active_power,
-     main="Global Active Power",
-     ylab = "Global Active Power (kilowatts)")
+x <- d$Time
+y <- d$Global_active_power
+plot(x,y,type="n",xlab="",ylab="Global Active Power (kilowatts)")
+lines(x,y)
